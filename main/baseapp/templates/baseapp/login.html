@@ -1,0 +1,163 @@
+{% extends "baseapp/base.html" %}
+{% load static %}
+{% block content%}
+
+<div class="container-fluid video-container font-1" style="height: 100vh;">
+  <div class="layer"></div>
+  <video autoplay muted loop style="height: 100%;">
+
+    <source src="{% static 'images/background.mp4' %}" type="video/mp4">
+
+  </video>
+
+  <div class="overlay">
+
+    <!-- form section -->
+    <form class="formsection d-flex flex-column align-items-center" method="POST">
+      {% csrf_token %}
+      <div class="logo">
+        <img src="{% static 'images/logo.png' %}" alt="" style="width: 130px;">
+        <h4 style="color: #ffffff; font-family: 'Permanent Marker', cursive;">Connect Hub</h4>
+      </div>
+      <div class="mb-3 mt-4" style="width: 85%;">
+        {{ form.username }}
+      </div>
+      <div class="mt-3" style="width: 85%;">
+        {{ form.password }}
+        <div class="mt-2" style="position: relative; float: left; color: white;">
+          <input type="checkbox" onclick="togglePasswordVisibility()"> Show password
+        </div>
+      </div>
+      <a href="" class="" style="position: relative; float: right; color: rgb(76, 153, 255); margin-left: 365px;">Forget password</a>
+      <div>
+        <button type="submit" class="btn btn-primary mb-3 mt-3"> Login </button>
+      </div>
+      <p class="mb-0 mt-1" style="color: white;">dont have any account ? <a
+          style="font-size: 14px; color: rgb(76, 153, 255);" href="{% url 'signup' %}">Sign up here</a></p>
+      <p class="mb-0 mt-1" style="color: white;">OR</p>
+      <a class="mt-1" href="" style="color: white;"><img class="google" style="width: 50px;"
+          src="{% static 'images/google.png' %}"></a>
+
+
+    </form>
+
+  </div>
+</div>
+
+<script>
+  function togglePasswordVisibility() {
+    var passwordInput = document.getElementById("password");
+    if (passwordInput.type === "password") {
+      passwordInput.type = "text";
+    } else {
+      passwordInput.type = "password";
+    }
+  }
+</script>
+
+
+
+
+
+
+
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  h1 {
+    color: rgb(255, 255, 255);
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #00eaff;
+  }
+
+  .google:hover {
+    /* border: 1px solid black; */
+    -webkit-box-shadow: 2px -2px 13px -1px rgba(255, 255, 255, 0.75);
+    -moz-box-shadow: 2px -2px 13px -1px rgba(255, 255, 255, 0.75);
+    box-shadow: 2px -2px 13px -1px rgba(255, 255, 255, 0.75);
+    ;
+
+  }
+
+  /* .google :hover {
+      background: linear-gradient(to right, rgba(66, 133, 244, 0.8), rgba(52, 168, 83, 0.8), rgba(251, 188, 5, 0.8), rgba(234, 67, 53, 0.8));;
+    } */
+
+  .overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 0%;
+    /* background-color: #00A9FF; */
+    /* Set your desired background color */
+    opacity: 1;
+    /* Adjust the opacity as needed */
+    z-index: 2;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  .video-container {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+  }
+
+  .cor-item {
+
+    border-radius: 5px;
+  }
+
+  .font-1 {
+    font-family: 'Roboto Condensed', sans-serif;
+  }
+
+  /* forsection */
+
+  .formsection {
+    width: 60%;
+    height: 550px;
+    background-color: rgba(0, 0, 0, 0.7);
+    ;
+    margin-right: 12px;
+    border-radius: 5px;
+  }
+
+  .layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.499);
+    object-fit: cover;
+  }
+</style>
+
+{% endblock content %}

@@ -1,0 +1,226 @@
+{% extends "baseapp/home.html" %}
+{% load static %}
+{% block feedloader %}
+<div class="feedLoader">
+    <div class="scrollable-div">
+        <div class="height">
+            <div class="cover">
+                <img class="cover-img" src="{{profile.coverImg.url}}" />
+                <div class="profile">
+                    <img class="profile-img"
+                        style="background-color: #3c3c3c; border: 4px solid white; border-radius: 50%;"
+                        src="{{profile.profileImg.url}}" />
+                </div>
+            </div>
+            <div class="profile-info">
+                <div class="edit">
+                    <a class="edit-profile" href="{% url 'editprofile' %}">
+                        Edit profile
+                    </a>
+                </div>
+                <div class="main-tag">
+                    <div class="all-tag ms-4" style="line-height: 1;">
+                        <h1 class="m-0">{{ profile.name }}</h1>
+                        <p style="font-size: large; color: rgb(210, 210, 210);" class="mt-1">{{ user.username }}</p>
+                        <div class="bio">
+                            <pre class="" style="font-size: large; line-height: 1;">{{ profile.bio }}</pre>
+                        </div>
+                        <p style="font-size: medium;"><i class="fa-solid fa-calendar text-primary"></i><span class="p-0" style="margin-left: 10px;">Date of birth: {{ profile.dob }}</span></p> 
+                        <p class="email"><a href="#">{{ profile.user.email }}</a></p>
+                    </div>
+                </div>
+                <div class="button-tag container">
+                        <div class="row but-1">
+                          <div class="col ">
+                            <a href=""><div class="but"><p>Post</p></div></a>
+                          </div>
+                          <div class="col ">
+                            <a href=""><div class="but"><p>Thoughts</p></div></a>
+                          </div>
+                          <div class="col ">
+                            <a href=""><div class="but"><p>Photos</p></div></a>
+                          </div>
+                          <div class="col ">
+                            <a href=""><div class="but"><p>Videos</p></div></a>
+                          </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+
+pre{
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: normal;
+
+}
+
+pre::-webkit-scrollbar{
+    width: 0;
+}
+
+.email{
+    position: relative;
+    float: right;
+    margin-top: -32px;
+    margin-right: 20px;
+}
+
+.but-1{
+    width: 100%;
+    height: 100%;
+}
+
+.but{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .but:hover{
+        background-color: #1f1f1f;
+    }
+
+    .but p{
+        margin-top: 12px;
+    }
+
+
+
+    .button-tag{
+        color: white;
+        padding: 0;
+        border-top: 1px solid white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .bio {
+        width: 33%;
+        height: 80px;
+        word-wrap: break-word;
+    }
+
+    .edit-profile {
+        padding: 10px 20px;
+        background-color: rgb(54, 74, 255);
+        border-radius: 30px;
+        position: relative;
+        float: right;
+        margin-top: 20px;
+        margin-right: 20px;
+        border: 0;
+        font-weight: bold;
+        color: white;
+    }
+
+    .edit-profile:hover {
+        background-color: rgb(32, 53, 234);
+    }
+
+
+
+    .edit,
+    .main-tag,
+    .button-tag {
+        width: 100%;
+    }
+
+    .edit {
+        height: 30%;
+    }
+
+    .main-tag {
+        height: 55%;
+        color: white;
+    }
+
+    .button-tag {
+        height: 15%;
+    }
+
+    .profile-info {
+        margin-top: 10px;
+        width: 100%;
+        height: 45vh;
+        border: 1px solid rgb(255, 255, 255);
+        background-color: #3c3c3c;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 10px;
+        border: 0;
+        
+    }
+
+    .profile {
+        position: relative;
+        top: -32%;
+        left: 3%;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        z-index: 2;
+    }
+
+    .cover {
+        width: 100%;
+        height: 40vh;
+        background-color: #3c3c3c;
+        border: 0;
+        border-radius: 10px;
+    }
+
+    .cover-img,
+    .profile-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border: 0;
+        border-radius: 10px;
+
+    }
+
+    .scrollable-div {
+        width: 100%;
+        height: 95vh;
+        overflow-y: auto;
+        margin-top: 3vh;
+    }
+
+    .scrollable-div::-webkit-scrollbar {
+        width: 1px;
+        /* Width of the scrollbar */
+    }
+
+    .scrollable-div::-webkit-scrollbar-track {
+        background-color: rgb(29, 29, 29);
+        /* Track color */
+    }
+
+    .scrollable-div::-webkit-scrollbar-thumb {
+        background: #616161;
+        /* Thumb color */
+
+    }
+
+    .scrollable-div::-webkit-scrollbar-thumb:hover {
+        background: #555;
+        /* Thumb color on hover */
+    }
+
+    .height {
+        width: 100%;
+        height: 200%;
+        padding: 0 10px;
+    }
+</style>
+{% endblock feedloader %}

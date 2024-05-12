@@ -44,7 +44,7 @@
                                 style="color: white;"></span>Notifications</span>
                         </div>
                     </a>
-                    <a href="#">
+                    <a href="{% url 'post' %}" onclick="">
                         <div class="menu-item">
                             <i class="fa-solid fa-plus"></i><span class="item-1"
                                 style="color: white;"></span>Post</span>
@@ -66,7 +66,7 @@
                         <i class="fa-solid fa-right-from-bracket"></i><span class="item-1" style="color: white;"></span>Logout</span>
                     </div>
                 </a>
-                <a href="{% url 'settings' %}">
+                <a href="{% url 'editprofile' %}">
                     <div class="menu-item">
                         <i class="fa-solid fa-gear"></i><span class="item-1"
                             style="color: white;"></span>Settings</span>
@@ -97,7 +97,24 @@
     </div>
 </div>
 
+
+
+<script>
+    
+</script>
+
+
 <style>
+
+/* .postbutton{
+    
+} */
+
+
+
+form {
+    margin-top: 10px;
+}   
 
     .suggestions{
         width: 100%;
@@ -127,6 +144,7 @@
         background-color: rgb(41, 41, 41);
         border-radius: 5px;
     }
+
 
     .main {
         width: 100%;

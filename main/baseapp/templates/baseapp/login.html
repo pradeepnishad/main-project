@@ -28,15 +28,15 @@
           <input type="checkbox" onclick="togglePasswordVisibility()"> Show password
         </div>
       </div>
-      <a href="" class="" style="position: relative; float: right; color: rgb(76, 153, 255); margin-left: 365px;">Forget password</a>
+      <a href="{% url 'password_reset' %}" class="" style="position: relative; float: right; color: rgb(76, 153, 255); margin-left: 365px;">Forget password</a>
       <div>
         <button type="submit" class="btn btn-primary mb-3 mt-3"> Login </button>
       </div>
-      <p class="mb-0 mt-1" style="color: white;">dont have any account ? <a
+      <p class="mb-0 mt-1" style="color: white;">dont have an account ? <a
           style="font-size: 14px; color: rgb(76, 153, 255);" href="{% url 'signup' %}">Sign up here</a></p>
-      <p class="mb-0 mt-1" style="color: white;">OR</p>
+      <!-- <p class="mb-0 mt-1" style="color: white;">OR</p>
       <a class="mt-1" href="" style="color: white;"><img class="google" style="width: 50px;"
-          src="{% static 'images/google.png' %}"></a>
+          src="{% static 'images/google.png' %}"></a> -->
 
 
     </form>
